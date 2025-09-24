@@ -39,11 +39,7 @@ print(f"Итого к оплате:    {format(total, '.2f')} руб")
 
 ```
 min = int(input('Минуты: '))
-hh = min // 60
-mm = min - 60 * hh
-if mm < 10:
-    mm = '0' + str(mm)
-print(f'{hh}:{mm}')
+print(f'{(min // 60):02d}:{(min % 60):02d}')
 ```
 
 ![Задание 4](images/04_minutes_to_hhmm.py.png)
