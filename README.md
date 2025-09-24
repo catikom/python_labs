@@ -7,7 +7,7 @@ age = int(input('Возраст: '))
 print(f'Привет, {name}! Через год тебе будет {age+1}.')
 ```
 
-![Задание 1](/images/01_greeting.py.png)
+![Задание 1](/images/lab01/01_greeting.py.png)
 
 ### Задание 2
 
@@ -17,7 +17,7 @@ b = float(str(input('b: ')).replace(',', '.'))
 print(f'sum={format(a+b, '.2f')}; avg={format((a+b)/2, '.2f')}')
 ```
 
-![Задание 2](/images/02_sum_avg.py.png)
+![Задание 2](/images/lab01/02_sum_avg.py.png)
 
 ### Задание 3
 
@@ -33,7 +33,7 @@ print(f"НДС:               {format(vat_amount, '.2f')} руб")
 print(f"Итого к оплате:    {format(total, '.2f')} руб")
 ```
 
-![Задание 3](/images/03_discount_vat.py.png)
+![Задание 3](/images/lab01/03_discount_vat.py.png)
 
 ### Задание 4
 
@@ -42,7 +42,7 @@ min = int(input('Минуты: '))
 print(f'{(min // 60):02d}:{(min % 60):02d}')
 ```
 
-![Задание 4](images/04_minutes_to_hhmm.py.png)
+![Задание 4](images/lab01/04_minutes_to_hhmm.py.png)
 
 ### Задание 5
 
@@ -58,4 +58,4 @@ print(f'Инициалы: {init}.')
 print('Длина (символов):', len(fio) + 2)
 ```
 
-![Задание 5](/images/05_initials_and_len.py.png)
+![Задание 5](/images/lab01/05_initials_and_len.py.png)
