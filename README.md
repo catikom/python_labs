@@ -180,3 +180,59 @@ print('[] ->', transpose([]))
 print('[[1, 2], [3]] ->', transpose([[1, 2], [3]]))
 ```
 ![Задание 2(transpose)](/images/lab02/02_matrix_transpose.png)
+
+### Задание 2 (row_sums)
+
+```
+def row_sums(mat: list[list[float | int]]) -> list[float]:
+
+    len_row = len(mat[0])
+    len_col = len(mat)
+    
+    for num in range(len(mat) - 1):
+        if len(mat[num]) != len(mat[num + 1]):
+            return ValueError('ValueError')
+            '''Проверка на одинаковую длину строк'''
+
+    sum_row = []
+    for row in mat:
+        sum_row.append(sum(row))
+
+    return sum_row
+
+print('[[1, 2, 3], [4, 5, 6]] ->', row_sums([[1, 2, 3], [4, 5, 6]]))
+print('[[-1, 1], [10, -10]] ->', row_sums([[-1, 1], [10, -10]]))
+print('[[0, 0], [0, 0]] ->', row_sums([[0, 0], [0, 0]]))
+print('[[1, 2], [3]] ->', row_sums([[1, 2], [3]]))
+```
+
+![Задание 2(row_sums)](images/lab02/02_matrix_row_sums.png)
+
+### Задание 2 (col_sums)
+
+```
+def col_sums(mat: list[list[float | int]]) -> list[float]:
+
+    len_row = len(mat[0])
+    len_col = len(mat)
+    
+    for num in range(len(mat) - 1):
+        if len(mat[num]) != len(mat[num + 1]):
+            return ValueError('ValueError')
+            '''Проверка на одинаковую длину строк'''
+
+    sum_col = []
+    for col in range(len_row):
+        summa = 0
+        for row in range(len_col):
+            summa += mat[row][col]
+        sum_col.append(summa)
+    
+    return sum_col
+print('[[1, 2, 3], [4, 5, 6]] ->', col_sums([[1, 2, 3], [4, 5, 6]]))
+print('[[-1, 1], [10, -10]] ->', col_sums([[-1, 1], [10, -10]]))
+print('[[0, 0], [0, 0]] ->', col_sums([[0, 0], [0, 0]]))
+print('[[1, 2], [3]] ->', col_sums([[1, 2], [3]]))
+```
+
+![Задание 2(col_sums)](images/lab02/02_matrix_col_sums.png)
