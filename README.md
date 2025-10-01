@@ -242,13 +242,13 @@ print('[[1, 2], [3]] ->', col_sums([[1, 2], [3]]))
 ```
 def format_record(rec: tuple[str, str, float]) -> str:
 
-    if rec[0] == [] or rec[1] == []:
+    if rec[0] == [] or rec[1] == [] or rec[2] == []:
         return ValueError("ValueError")
-    '''ValueError, если пустые имя/группа'''
+    '''ValueError, если пустые имя/группа/GPA'''
     
-    if not isinstance(rec[2], float):
+    if  not isinstance(rec[0], str) or not isinstance(rec[1], str) or not isinstance(rec[2], float) :
         return TypeError('TypeError')
-    '''TypeError, если некорректный тип GPA'''
+    '''TypeError, если некорректный тип данных'''
     
 
     fio = rec[0].title().split()
