@@ -242,7 +242,8 @@ print('[[1, 2], [3]] ->', col_sums([[1, 2], [3]]))
 ```
 def format_record(rec: tuple[str, str, float]) -> str:
 
-    if rec[0] == [] or rec[1] == [] or rec[2] == []:
+    fio = rec[0].title().split()
+    if fio == [] or len(fio) == 1 or rec[1] == [] or rec[2] == []:
         return ValueError("ValueError")
     '''ValueError, если пустые имя/группа/GPA'''
     
@@ -251,7 +252,6 @@ def format_record(rec: tuple[str, str, float]) -> str:
     '''TypeError, если некорректный тип данных'''
     
 
-    fio = rec[0].title().split()
     if len(fio) == 3:
         f_io = f"{fio[0]} {fio[1][0]}. {fio[2][0]}."
     else:
