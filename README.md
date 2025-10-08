@@ -1,5 +1,5 @@
 # PYTHON LABS
-## LAB_01
+<!-- ## LAB_01
 ### Задание 1
 
 ```
@@ -59,7 +59,7 @@ print(f'Инициалы: {init}.')
 print('Длина (символов):', len(fio) + 2)
 ```
 
-![Задание 5](/images/lab01/05_initials_and_len.py.png)
+![Задание 5](/images/lab01/05_initials_and_len.py.png) -->
 
 ## LAB_02
 
