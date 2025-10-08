@@ -83,12 +83,6 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
     return mini, maxi 
     '''В другом случае возвращает минимум и максимум из списка'''
-
-print('[3, -1, 5, 5, 0] ->', min_max([3, -1, 5, 5, 0]))
-print('[42] ->', min_max([42]))
-print('[-5, -2, -9] ->', min_max([-5, -2, -9]))
-print('[] ->', min_max([]))
-print('[1.5, 2, 2.0, -3.1] ->', min_max([1.5, 2, 2.0, -3.1]))
 ```
 
 ![Задание 1(min_max)](/images/lab02/01_arrays_min_max.png)
@@ -108,11 +102,6 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
                 '''Сортировка пузырьком'''
                 
     return nums
-
-print('[3, 1, 2, 1, 3] ->', unique_sorted([3, 1, 2, 1, 3]))
-print('[] ->', unique_sorted([]))
-print('[-1, -1, 0, 2, 2] ->', unique_sorted([-1, -1, 0, 2, 2]))
-print('[1.0, 1, 2.5, 2.5, 0] ->', unique_sorted([1.0, 1, 2.5, 2.5, 0]))
 ```
 
 ![Задание 1(unique_sorted)](/images/lab02/01_arrays_unique_sorted.png)
@@ -136,11 +125,6 @@ def flatten(mat: list[list | tuple]) -> list:
             '''Если есть элемент, не являющийся списком/кортежем, выводит ошибку'''
 
     return new_mat
-
-print('[[1, 2], [3, 4]] ->', flatten([[1, 2], [3, 4]]))
-print('([1, 2], (3, 4, 5)) ->', flatten(([1, 2], (3, 4, 5))))
-print('[[1], [], [2, 3]] ->', flatten([[1], [], [2, 3]]))
-print('[[1, 2], "ab"] ->', flatten([[1, 2], "ab"]))
 ```
 ![Задание 1(flatten)](/images/lab02/01_arrays_flatten.png)
 
@@ -171,13 +155,6 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
         '''Ряд добавляется в новую матрицу'''
 
     return new_mat
-
-
-print('[[1, 2, 3]] ->', transpose([[1, 2, 3]]))
-print('[[1], [2], [3]] ->', transpose([[1], [2], [3]]))
-print('[[1, 2], [3]] ->', transpose([[1, 2], [3, 4]]))
-print('[] ->', transpose([]))
-print('[[1, 2], [3]] ->', transpose([[1, 2], [3]]))
 ```
 ![Задание 2(transpose)](/images/lab02/02_matrix_transpose.png)
 
@@ -199,11 +176,6 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
         sum_row.append(sum(row))
 
     return sum_row
-
-print('[[1, 2, 3], [4, 5, 6]] ->', row_sums([[1, 2, 3], [4, 5, 6]]))
-print('[[-1, 1], [10, -10]] ->', row_sums([[-1, 1], [10, -10]]))
-print('[[0, 0], [0, 0]] ->', row_sums([[0, 0], [0, 0]]))
-print('[[1, 2], [3]] ->', row_sums([[1, 2], [3]]))
 ```
 
 ![Задание 2(row_sums)](/images/lab02/02_matrix_row_sums.png)
@@ -229,10 +201,6 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
         sum_col.append(summa)
     
     return sum_col
-print('[[1, 2, 3], [4, 5, 6]] ->', col_sums([[1, 2, 3], [4, 5, 6]]))
-print('[[-1, 1], [10, -10]] ->', col_sums([[-1, 1], [10, -10]]))
-print('[[0, 0], [0, 0]] ->', col_sums([[0, 0], [0, 0]]))
-print('[[1, 2], [3]] ->', col_sums([[1, 2], [3]]))
 ```
 
 ![Задание 2(col_sums)](/images/lab02/02_matrix_col_sums.png)
