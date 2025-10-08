@@ -41,24 +41,24 @@
 # print('[1.0, 1, 2.5, 2.5, 0] ->', unique_sorted([1.0, 1, 2.5, 2.5, 0]))
 
 
-def flatten(mat: list[list | tuple]) -> list:
+# def flatten(mat: list[list | tuple]) -> list:
     
-    new_mat = []
-    for elements in mat:
-            if isinstance(elements, tuple | list):
-                '''Проверяет, список.кортеж ли элемент'''
+#     new_mat = []
+#     for elements in mat:
+#             if isinstance(elements, tuple | list):
+#                 '''Проверяет, список.кортеж ли элемент'''
 
-                for element in elements:
-                    new_mat.append(element)
-                '''Если все элементы удовлетворяют условию, то проходимся по элементам внутри каждого из них'''
+#                 for element in elements:
+#                     new_mat.append(element)
+#                 '''Если все элементы удовлетворяют условию, то проходимся по элементам внутри каждого из них'''
                 
-            else:
-                return TypeError('TypeError')
-            '''Если есть элемент, не являющийся списком/кортежем, выводит ошибку'''
+#             else:
+#                 return TypeError('TypeError')
+#             '''Если есть элемент, не являющийся списком/кортежем, выводит ошибку'''
 
-    return new_mat
+#     return new_mat
 
-print('[[1, 2], [3, 4]] ->', flatten([[1, 2], [3, 4]]))
-print('([1, 2], (3, 4, 5)) ->', flatten(([1, 2], (3, 4, 5))))
-print('[[1], [], [2, 3]] ->', flatten([[1], [], [2, 3]]))
-print('[[1, 2], "ab"] ->', flatten([[1, 2], "ab"]))
+# print('[[1, 2], [3, 4]] ->', flatten([[1, 2], [3, 4]]))
+# print('([1, 2], (3, 4, 5)) ->', flatten(([1, 2], (3, 4, 5))))
+# print('[[1], [], [2, 3]] ->', flatten([[1], [], [2, 3]]))
+# print('[[1, 2], "ab"] ->', flatten([[1, 2], "ab"]))

@@ -246,9 +246,10 @@ def format_record(rec: tuple[str, str, float]) -> str:
     if fio == [] or len(fio) == 1 or rec[1] == [] or rec[2] == []:
         return ValueError("ValueError")
     '''ValueError, если пустые имя/группа/GPA'''
-    
-    if  not isinstance(rec[0], str) or not isinstance(rec[1], str) or not isinstance(rec[2], float) :
-        return TypeError('TypeError')
+
+   if  not isinstance(rec[0], str) or not isinstance(rec[1], str) or not isinstance(rec[2], float) :
+        if not isinstance(rec, tuple):
+            return TypeError('TypeError')
     '''TypeError, если некорректный тип данных'''
     
 
