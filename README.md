@@ -1,5 +1,5 @@
 # PYTHON LABS
-<!-- ## LAB_01
+## LAB_01
 ### Задание 1
 
 ```
@@ -59,7 +59,7 @@ print(f'Инициалы: {init}.')
 print('Длина (символов):', len(fio) + 2)
 ```
 
-![Задание 5](/images/lab01/05_initials_and_len.py.png) -->
+![Задание 5](/images/lab01/05_initials_and_len.py.png)
 
 ## LAB_02
 
@@ -335,9 +335,9 @@ def top_n(freq: dict[str, int], n: int = 2) -> list[tuple[str, int]]:
 
     '''Вернуть топ-N по убыванию частоты; при равенстве — по алфавиту слова.'''
 
-    sorted_items = sorted(freq.items(), key = lambda x : x[1])[::-1]
     sorted_items = sorted(freq.items(), key = lambda x : x[0])
-    '''Сортируем словарь сначала по частотам ([::-1] для того, чтобы сначала отображался самый большой), потом по алфавиту'''
+    sorted_items = sorted(freq.items(), key = lambda x : x[1])[::-1]
+    '''Сортируем словарь сначала по алфавиту, потом по частотам ([::-1] для того, чтобы сначала отображался самый большой)'''
 
     return sorted_items[:n]
     '''Возвращаем первые n элементов'''
