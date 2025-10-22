@@ -372,4 +372,4 @@ def main():
 
 print(main()) #вызов функции
 ```
-![Задание 2 (text_stats)](/src/lab03/text_stats.py)
+![Задание 2 (text_stats)](/images/lab03/02_text_stats.png)
