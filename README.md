@@ -2,7 +2,7 @@
 ## LAB_01
 ### Задание 1
 
-```
+```py
 name = str(input('Имя: '))
 age = int(input('Возраст: '))
 print(f'Привет, {name}! Через год тебе будет {age+1}.')
@@ -12,7 +12,7 @@ print(f'Привет, {name}! Через год тебе будет {age+1}.')
 
 ### Задание 2
 
-```
+```py
 a = float(str(input('a: ')).replace(',', '.'))
 b = float(str(input('b: ')).replace(',', '.'))
 print(f'sum={format(a+b, '.2f')}; avg={format((a+b)/2, '.2f')}')
@@ -22,7 +22,7 @@ print(f'sum={format(a+b, '.2f')}; avg={format((a+b)/2, '.2f')}')
 
 ### Задание 3
 
-```
+```py
 price = int(input())
 discount = int(input())
 vat = int(input())
@@ -38,7 +38,7 @@ print(f"Итого к оплате:    {format(total, '.2f')} руб")
 
 ### Задание 4
 
-```
+```py
 min = int(input('Минуты: '))
 print(f'{(min // 60):02d}:{(min % 60):02d}')
 ```
@@ -47,7 +47,7 @@ print(f'{(min // 60):02d}:{(min % 60):02d}')
 
 ### Задание 5
 
-```
+```py
 fio = str(input('ФИО: '))
 for i in range(len(fio)):
     fio = fio.replace(" ", "")
@@ -65,7 +65,7 @@ print('Длина (символов):', len(fio) + 2)
 
 ### Задание 1 (min_max)
 
-```
+```py
 def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
     if nums == []:
@@ -89,7 +89,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
 ### Задание 1 (unique_sorted)
 
-```
+```py
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
 
     nums = list(set(nums))
@@ -108,7 +108,7 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
 
 ### Задание 1 (flatten)
 
-```
+```py
 def flatten(mat: list[list | tuple]) -> list:
     
     new_mat = []
@@ -130,7 +130,7 @@ def flatten(mat: list[list | tuple]) -> list:
 
 ### Задание 2 (transpose)
 
-```
+```py
 def transpose(mat: list[list[float | int]]) -> list[list]:
 
     if not mat:
@@ -160,7 +160,7 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
 
 ### Задание 2 (row_sums)
 
-```
+```py
 def row_sums(mat: list[list[float | int]]) -> list[float]:
 
     len_row = len(mat[0])
@@ -182,7 +182,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
 
 ### Задание 2 (col_sums)
 
-```
+```py
 def col_sums(mat: list[list[float | int]]) -> list[float]:
 
     len_row = len(mat[0])
@@ -207,7 +207,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
 
 ### Задание 3 (tuples)
 
-```
+```py
 def format_record(rec: tuple[str, str, float]) -> str:
 
     fio = rec[0].title().split()
@@ -245,7 +245,7 @@ print(format_record(("  сидорова  анна   сергеевна ", "ABB-
 
 ### Задание 1 (normalize)
 
-```
+```py
 def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
 
     '''
@@ -276,7 +276,7 @@ assert normalize("  двойные   пробелы  ") == "двойные пр�
 
 ### Задание 1 (tokenize)
 
-```
+```py
 import re
 
 def tokenize(text: str) -> list[str]:
@@ -307,7 +307,7 @@ assert tokenize("2025 год") == ["2025", "год"]
 
 ### Задание 1 (count_freq)
 
-```
+```py
 def count_freq(tokens: list[str]) -> dict[str, int]:
 
     '''Подсчитать частоты, вернуть словарь слово → количество.'''
@@ -330,7 +330,7 @@ assert freq == {"a":3, "b":2, "c":1}
 
 ### Задание 1 (top_n)
 
-```
+```py
 def top_n(freq: dict[str, int], n: int = 2) -> list[tuple[str, int]]:
 
     '''Вернуть топ-N по убыванию частоты; при равенстве — по алфавиту слова.'''
@@ -350,7 +350,7 @@ assert top_n(freq, 2) == [("a",3), ("b",2)]
 
 ### Задание 2 (text_stats)
 
-```
+```py
 import sys
 from lib.text import normalize, tokenize, count_freq, top_n
 
