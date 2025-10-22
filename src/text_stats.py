@@ -17,7 +17,8 @@ def main():
     for i in top5:
         print( f'{i[0]}:{i[1]}') 
 
-print(main()) #вызов функции
+if 1 == 1:
+    main() #вызов функции
 
 
 
