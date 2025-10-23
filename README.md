@@ -241,7 +241,7 @@ print(format_record(("  сидорова  анна   сергеевна ", "ABB-
 
 ![Задание 3 (tuples)](/images/lab02/02_tuples.png)
 
-##LAB_03
+## LAB_03
 
 ### Задание 1 (normalize)
 
