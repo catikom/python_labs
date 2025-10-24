@@ -65,11 +65,15 @@ print('Длина (символов):', len(fio) + 2)
 
 ### Задание 1 (min_max)
 
+## LAB_02
+
+### Задание 1 (min_max)
+
 ```py
 def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
     if nums == []:
-        return ValueError('Список пустой') 
+        raise ValueError('Список пустой') 
     '''Возвращает ValueError, если список пустой'''
     
     mini = nums[0]
@@ -99,8 +103,12 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
             if nums[j] > nums[j + 1]:
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
 
-                '''Сортировка пузырьком:
-                Каждый проход бОльшего цикла "всплывает" самый большой элемент из неотсортированной части. С каждым проходом сокращаем диапазон, т.к. последние i элементов уже на своих местах. Сравниваем последние числа'''
+                '''
+                Сортировка пузырьком:
+                Каждый проход бОльшего цикла "всплывает" самый большой элемент из
+                неотсортированной части. С каждым проходом сокращаем диапазон, т.к.
+                последние i элементов уже на своих местах. Сравниваем последние числа
+                '''
                 
     return nums
 ```
@@ -119,10 +127,13 @@ def flatten(mat: list[list | tuple]) -> list:
 
                 for element in elements:
                     new_mat.append(element)
-                '''Если все элементы удовлетворяют условию, то проходимся по элементам внутри каждого из них и добавляем в "сплющенную" матрицу'''
+                '''
+                Если все элементы удовлетворяют условию, то проходимся по
+                элементам внутри каждого из них и добавляем в "сплющенную" матрицу
+                '''
                 
             else:
-                return TypeError('Элемент не того типа данных')
+                raise TypeError('Элемент не того типа данных')
             '''Если есть элемент, не являющийся списком/кортежем, выводит ошибку'''
 
     return new_mat
@@ -140,7 +151,7 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            raise ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
     len_row = len(mat[0])
@@ -149,10 +160,16 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
 
     for col_ind in range(len_row):
         new_row = []
-        '''С каждым запуском цикла создаётся ряд, рядов столько, сколько столбцов в изначальной матрице'''
+        '''
+        C каждым запуском цикла создаётся ряд, рядов столько,
+        сколько столбцов в изначальной матрице
+        '''
         for row_ind in range(len_col):
             new_row.append(mat[row_ind][col_ind])
-            '''Элементов в ряд добавляется столько, сколько столбцов в изначальной матрице'''
+            '''
+            Элементов в ряд добавляется столько, сколько
+            столбцов в изначальной матрице
+            '''
         new_mat.append(new_row)
         '''Ряд добавляется в новую матрицу'''
 
@@ -167,7 +184,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            raise ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
     sum_row = []
@@ -190,7 +207,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            raise ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
     sum_col = []
@@ -213,12 +230,12 @@ def format_record(rec: tuple[str, str, float]) -> str:
 
     fio = rec[0].title().split()
     if fio == [] or len(fio) == 1 or rec[1] == [] or rec[2] == []:
-        return ValueError("Пустые значения")
+        raise ValueError("Пустые значения")
     '''ValueError, если пустые имя/группа/GPA'''
 
    if  not isinstance(rec[0], str) or not isinstance(rec[1], str) or not isinstance(rec[2], float) :
         if not isinstance(rec, tuple):
-            return TypeError('Некорректный тип данных')
+            raise TypeError('Некорректный тип данных')
     '''TypeError, если некорректный тип данных'''
     
 

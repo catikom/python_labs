@@ -6,7 +6,7 @@
 def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
     if nums == []:
-        return ValueError('Список пустой') 
+        raise ValueError('Список пустой') 
     '''Возвращает ValueError, если список пустой'''
     
     mini = nums[0]
@@ -66,7 +66,7 @@ def flatten(mat: list[list | tuple]) -> list:
                 '''
                 
             else:
-                return TypeError('Элемент не того типа данных')
+                raise TypeError('Элемент не того типа данных')
             '''Если есть элемент, не являющийся списком/кортежем, выводит ошибку'''
 
     return new_mat
@@ -84,7 +84,7 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            raise ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
     len_row = len(mat[0])
@@ -117,7 +117,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            raise ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
     sum_row = []
@@ -140,7 +140,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            raise ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
     sum_col = []
@@ -163,12 +163,12 @@ def format_record(rec: tuple[str, str, float]) -> str:
 
     fio = rec[0].title().split()
     if fio == [] or len(fio) == 1 or rec[1] == [] or rec[2] == []:
-        return ValueError("Пустые значения")
+        raise ValueError("Пустые значения")
     '''ValueError, если пустые имя/группа/GPA'''
 
    if  not isinstance(rec[0], str) or not isinstance(rec[1], str) or not isinstance(rec[2], float) :
         if not isinstance(rec, tuple):
-            return TypeError('Некорректный тип данных')
+            raise TypeError('Некорректный тип данных')
     '''TypeError, если некорректный тип данных'''
     
 
