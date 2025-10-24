@@ -2,11 +2,11 @@
 
 ### Задание 1 (min_max)
 
-```
+```py
 def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
     if nums == []:
-        return ValueError('ValueError') 
+        return ValueError('Список пустой') 
     '''Возвращает ValueError, если список пустой'''
     
     mini = nums[0]
@@ -26,7 +26,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
 ### Задание 1 (unique_sorted)
 
-```
+```py
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
 
     nums = list(set(nums))
@@ -36,7 +36,8 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
             if nums[j] > nums[j + 1]:
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
 
-                '''Сортировка пузырьком'''
+                '''Сортировка пузырьком:
+                Каждый проход бОльшего цикла "всплывает" самый большой элемент из неотсортированной части. С каждым проходом сокращаем диапазон, т.к. последние i элементов уже на своих местах. Сравниваем последние числа'''
                 
     return nums
 ```
@@ -45,20 +46,20 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
 
 ### Задание 1 (flatten)
 
-```
+```py
 def flatten(mat: list[list | tuple]) -> list:
     
     new_mat = []
     for elements in mat:
             if isinstance(elements, tuple | list):
-                '''Проверяет, список.кортеж ли элемент'''
+                '''Проверяет, список/кортеж ли элемент'''
 
                 for element in elements:
                     new_mat.append(element)
-                '''Если все элементы удовлетворяют условию, то проходимся по элементам внутри каждого из них'''
+                '''Если все элементы удовлетворяют условию, то проходимся по элементам внутри каждого из них и добавляем в "сплющенную" матрицу'''
                 
             else:
-                return TypeError('TypeError')
+                return TypeError('Элемент не того типа данных')
             '''Если есть элемент, не являющийся списком/кортежем, выводит ошибку'''
 
     return new_mat
@@ -67,24 +68,25 @@ def flatten(mat: list[list | tuple]) -> list:
 
 ### Задание 2 (transpose)
 
-```
+```py
 def transpose(mat: list[list[float | int]]) -> list[list]:
 
     if not mat:
         return []
         '''Проверка наличия элементов в матрице'''
-    len_row = len(mat[0])
-    len_col = len(mat)
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('ValueError')
+            return ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
+    len_row = len(mat[0])
+    len_col = len(mat)
     new_mat =[]
+
     for col_ind in range(len_row):
         new_row = []
-        '''С каждым запуске цикла создаётся ряд, рядов столько, сколько столбцов в изначальной матрице'''
+        '''С каждым запуском цикла создаётся ряд, рядов столько, сколько столбцов в изначальной матрице'''
         for row_ind in range(len_col):
             new_row.append(mat[row_ind][col_ind])
             '''Элементов в ряд добавляется столько, сколько столбцов в изначальной матрице'''
@@ -97,18 +99,16 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
 
 ### Задание 2 (row_sums)
 
-```
+```py
 def row_sums(mat: list[list[float | int]]) -> list[float]:
-
-    len_row = len(mat[0])
-    len_col = len(mat)
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('ValueError')
+            return ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
     sum_row = []
+
     for row in mat:
         sum_row.append(sum(row))
 
@@ -119,7 +119,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
 
 ### Задание 2 (col_sums)
 
-```
+```py
 def col_sums(mat: list[list[float | int]]) -> list[float]:
 
     len_row = len(mat[0])
@@ -127,14 +127,15 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('ValueError')
+            return ValueError('Матрица рваная')
             '''Проверка на одинаковую длину строк'''
 
     sum_col = []
+
     for col in range(len_row):
         summa = 0
         for row in range(len_col):
-            summa += mat[row][col]
+            summa += mat[row][col] #меняем индексы местами
         sum_col.append(summa)
     
     return sum_col
@@ -144,17 +145,17 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
 
 ### Задание 3 (tuples)
 
-```
+```py
 def format_record(rec: tuple[str, str, float]) -> str:
 
     fio = rec[0].title().split()
     if fio == [] or len(fio) == 1 or rec[1] == [] or rec[2] == []:
-        return ValueError("ValueError")
+        return ValueError("Пустые значения")
     '''ValueError, если пустые имя/группа/GPA'''
 
    if  not isinstance(rec[0], str) or not isinstance(rec[1], str) or not isinstance(rec[2], float) :
         if not isinstance(rec, tuple):
-            return TypeError('TypeError')
+            return TypeError('Некорректный тип данных')
     '''TypeError, если некорректный тип данных'''
     
 
@@ -166,7 +167,7 @@ def format_record(rec: tuple[str, str, float]) -> str:
        в f_io сохраняются фамилия и инициалы"""
     
     GPA = f'GPA {format(round(rec[2], 2), '.2f')}'
-    '''Округление, 2 знака после запятой '''
+    '''Округление (round), 2 знака после запятой(format)'''
 
     return f'{f_io}, гр. {rec[1]}, {GPA}'
 

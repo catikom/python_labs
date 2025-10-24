@@ -1,20 +1,20 @@
-# def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
+def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
-#     if nums == []:
-#         return ValueError('ValueError') 
-#     '''Возвращает ValueError, если список пустой'''
+    if nums == []:
+        raise ValueError('Список пуст') 
+    '''Возвращает ValueError, если список пустой'''
 
-#     mini = nums[0]
-#     for next in nums:
-#         if next < mini:
-#             mini = next 
-#     maxi = nums[0]
-#     for next in nums:
-#         if next > mini:
-#             maxi = next 
+    mini = nums[0]
+    for next in nums:
+        if next < mini:
+            mini = next 
+    maxi = nums[0]
+    for next in nums:
+        if next > mini:
+            maxi = next 
 
-#     return mini, maxi 
-#     '''В другом случае возвращает минимум и максимум из списка'''
+    return mini, maxi 
+    '''В другом случае возвращает минимум и максимум из списка'''
 
 # print('[3, -1, 5, 5, 0] ->', min_max([3, -1, 5, 5, 0]))
 # print('[42] ->', min_max([42]))

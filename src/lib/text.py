@@ -30,10 +30,10 @@ def count_freq(tokens: list[str]) -> dict[str, int]:
 
     return dict
 
-def top_n(freq: dict[str, int], n: int = 2) -> list[tuple[str, int]]:
 
-    sorted_items = sorted(freq.items(), key = lambda x : x[0])
-    sorted_items = sorted(freq.items(), key = lambda x : x[1], reverse = True)
+def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
+
+    sorted_items = sorted(freq.items())
+    sorted_items = sorted(sorted_items, key = lambda x : x[1], reverse = True)
 
     return sorted_items[:n]
-
