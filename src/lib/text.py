@@ -23,12 +23,12 @@ def tokenize(text: str) -> list[str]:
 
 def count_freq(tokens: list[str]) -> dict[str, int]:
 
-    dict = {}
+    freq = {}
 
     for token in tokens: 
-        dict[token] = dict.get(token, 0) + 1
+        freq[token] = dict.get(token, 0) + 1
 
-    return dict
+    return freq
 
 
 def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:

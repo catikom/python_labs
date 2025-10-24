@@ -84,14 +84,14 @@ def count_freq(tokens: list[str]) -> dict[str, int]:
 
     '''Подсчитать частоты, вернуть словарь слово → количество.'''
 
-    dict = {} #создаём словарь, в который и будем вносить слова и частоты
+    freq = {} #создаём словарь, в который и будем вносить слова и частоты
 
     for key in tokens: #пробегаемся по каждому токену
-        dict[key] = dict.get(key, 0) + 1
+        freq[key] = freq.get(key, 0) + 1
         '''get возвращает текущее значение, если ключ уже есть в словаре + 1
            или 0 + 1, если в словаре ключа еще нет в словаре. Он появляетя там в виде {key:1} '''
 
-    return dict
+    return freq
 
 freq = count_freq(["a","b","a","c","b","a"])
 assert freq == {"a":3, "b":2, "c":1}
@@ -140,8 +140,8 @@ def main():
     
     norm_line = tokenize(normalize(line))   #без этого шага слова в верхнем и нижнем регистре будут считаться разными
     uniq_line = len(set(norm_line))   #set возвращает список уникальных элементов (без повтроений)
-    dict = count_freq(norm_line)
-    top5 = top_n(dict, 5)
+    freq = count_freq(norm_line)
+    top5 = top_n(freq, 5)
 
 
     print('Всего слов:', len(norm_line))
@@ -151,6 +151,6 @@ def main():
         print( f'{i[0]}:{i[1]}') 
 
 while True: #опционально: для бесконечного вызова функции
-    main() #вызов функции
+    main()  #вызов функции
 ```
 ![Задание 2 (text_stats)](/images/lab03/02_text_stats.png)

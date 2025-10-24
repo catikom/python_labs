@@ -8,8 +8,8 @@ def main():
     
     norm_line = tokenize(normalize(line))   #без этого шага слова в верхнем и нижнем регистре будут считаться разными
     uniq_line = len(set(norm_line))   #set возвращает список уникальных элементов (без повтроений)
-    dict = count_freq(norm_line)
-    top5 = top_n(dict, 5)
+    freq = count_freq(norm_line)
+    top5 = top_n(freq, 5)
 
 
     print('Всего слов:', len(norm_line))
