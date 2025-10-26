@@ -1,7 +1,7 @@
 def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
 
     if casefold == True:
-        text = text.casefold() #строку в нижний регистр
+        text = text.casefold()
 
     if yo2e == True:
         text = text.replace('ё', 'е')
@@ -26,7 +26,7 @@ def count_freq(tokens: list[str]) -> dict[str, int]:
     freq = {}
 
     for token in tokens: 
-        freq[token] = dict.get(token, 0) + 1
+        freq[token] = freq.get(token, 0) + 1
 
     return freq
 
