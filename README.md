@@ -581,7 +581,7 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
         writer.writeheader()
         writer.writerows(data_json) # Записываем данные построчно
 ```
-![json_to_csv](/images/lab05/01_csv_json.png)
+![json_to_csv](/images/lab05/01_json_csv.png)
 
 ### Задание A (csv_to_json)
 
