@@ -1,6 +1,8 @@
 from pathlib import Path
 import csv
 from typing import Iterable, Sequence
+from collections import Counter
+from lib.text import normalize, tokenize
 
 
 def ensure_parent_dir(path: Path | str) -> None:
@@ -80,14 +82,32 @@ def write_csv(rows: Iterable[Sequence], path: str | Path, header: tuple[str, ...
 '''Функция не возвращает ничего, она записывает данные в CSV файл.'''
 
 
-# def write_text(txt: str, path: str | Path, encoding: str = "utf-8") -> str:
+def frequencies_from_text(text: str) -> dict[str, int]:
+    """
+    Подсчитать частоты слов в тексте, используя normalize/tokenize из ЛР3.
 
-#     '''
-#     Открыть файл на чтение в указанной кодировке и вернуть содержимое как одну строку.
-#     Обрабатывать ошибки: если файл не найден — поднимать FileNotFoundError (пусть падает),
-#     если кодировка не подходит — поднимать UnicodeDecodeError (пусть падает).
-#     '''
+    Аргументы:
+        text: исходный текст.
 
-#     p = Path(path)   # Создаем путь к файлу - Path-объект
-    
-#     return p.write_text(encoding=encoding)
+    Возвращает:
+        dict[str, int]: словарь слово -> частота.
+    """
+
+    tokens = tokenize(normalize(text))
+    return Counter(tokens)  # dict-like
+
+
+def sorted_word_counts(freq: dict[str, int]) -> list[tuple[str, int]]:
+    """
+    Отсортировать пары (слово, частота):
+      - сначала по убыванию частоты,
+      - затем по алфавиту.
+
+    Аргументы:
+        freq: словарь слово -> частота.
+
+    Возвращает:
+        list[tuple[str, int]]: отсортированный список.
+    """
+
+    return sorted(freq.items(), key=lambda kv: (-kv[1], kv[0]))

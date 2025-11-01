@@ -42,7 +42,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:    #Считает с
     
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            return ValueError('Матрица рваная)
 
     sum_col = []
     for col in range(len_row):
