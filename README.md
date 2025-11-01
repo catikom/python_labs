@@ -581,7 +581,7 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
         writer.writeheader()
         writer.writerows(data_json) # Записываем данные построчно
 ```
-![json_to_csv](../../images/lab05/01_csv_json.png)
+![json_to_csv](/images/lab05/01_csv_json.png)
 
 ### Задание A (csv_to_json)
 
@@ -633,7 +633,7 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
         indent=2 - красивый вывод
         '''
 ```
-![csv_to_json](../../images/lab05/01_csv_json.png)
+![csv_to_json](/images/lab05/01_csv_json.png)
 
 ### Задание B (csv_to_xlsx)
 ```py
@@ -693,4 +693,4 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
 
     wb.save(xlsx_path)  # Сохраняем все изменения в указанном пути
 ```
-![csv_to_xlsx](../../images/lab05/02_csv_to_xlsx.png)
+![csv_to_xlsx](/images/lab05/02_csv_to_xlsx.png)
