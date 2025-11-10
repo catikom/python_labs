@@ -531,7 +531,7 @@ write_csv(txt_counts, 'data/report.csv', ("word","count"))
 ![Задание B](/images/lab04/02_text_report.png)
  -->
 
-
+<!-- 
 ## LAB_05
 
 ### Задание A (json_to_csv)
@@ -694,7 +694,7 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
 
     wb.save(xlsx_path)  # Сохраняем все изменения в указанном пути
 ```
-![csv_to_xlsx](/images/lab05/02_csv_to_xlsx.png)
+![csv_to_xlsx](/images/lab05/02_csv_to_xlsx.png) -->
 
 ## LAB_06
 ### CLI_text
