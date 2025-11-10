@@ -12,8 +12,8 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
     """
     json_path = Path(json_path)   # Создаем путь к файлу - Path-объект
     
-    # if not json_path.exists():   # Явная проверка существования файла
-    #     raise FileExistsError('Файл не найден')
+    if not json_path.exists():   # Явная проверка существования пути
+        raise FileExistsError('Путь не найден')
     '''
     Работаем с открытым JSON-файлом на чтение, загружаем его, паралелльно отлавливая ошибки.
     '''
@@ -24,24 +24,23 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
         except json.JSONDecodeError:   # Выходит, когда файл невозможно загрузить в формате JSON
             raise ValueError("Пустой JSON или неподдерживаемая структура")
         
-        except not data_json:  # Явная проверка существования файла
-            raise FileNotFoundError("Файл не найден")
+    if not data_json:  # Явная проверка существования файла
+        raise FileNotFoundError("Файл не найден")
         
-        except not isinstance(data_json, list):
-            raise ValueError('Файл не JSON формата: не список словарей')
+    if not isinstance(data_json, list):
+        raise ValueError('Файл не JSON формата: не список словарей')
         
-        except not all(isinstance(row, dict) for row in data_json):
-            raise ValueError('Файл не JSON формата: в списке не словари')
+    if not all(isinstance(row, dict) for row in data_json):
+        raise ValueError('Файл не JSON формата: в списке не словари')
     '''
-    Работаем с файлом формата .csv, записывая в него данные из загруженного ранее JSON-файла.
+    Работаем с CSV-файлом, записывая в него данные из загруженного ранее JSON-файла.
     '''
 
     csv_path = Path(csv_path)
 
     with open(csv_path, 'w', encoding='utf-8', newline='') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=data_json[0].keys())
+        writer = csv.DictWriter(csv_file, fieldnames=data_json[0].keys()) # Записывает список словарей, заголовок - ключи словарей
         writer.writeheader()
-        writer.writerows(data_json)
-        
+        writer.writerows(data_json) # Записываем данные построчно
 
-json_to_csv('data/samples/people.json', "data/out/people_from_json.csv")
+# json_to_csv('data/samples/people.json', 'data/out/people_from_json.csv')

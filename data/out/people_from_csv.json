@@ -1,32 +1,31 @@
 [
   {
     "name": "Анна Иванова",
-    "age": 28,
+    "age": "28",
     "city": "Москва",
     "email": "anna@example.com"
   },
   {
     "name": "Петр Сидоров",
-    "age": 35,
+    "age": "35",
     "city": "Санкт-Петербург",
     "email": "petr@example.com"
   },
   {
     "name": "Мария Козлова",
-    "age": 24,
+    "age": "24",
     "city": "Казань",
     "email": "maria@example.com"
   },
   {
     "name": "Иван Петров",
-    "age": 42,
+    "age": "42",
     "city": "Новосибирск",
     "email": "ivan@example.com"
   },
   {
-    "id": 5,
     "name": "Ольга Смирнова",
-    "age": 31,
+    "age": "31",
     "city": "Екатеринбург",
     "email": "olga@example.com"
   }

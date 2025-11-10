@@ -562,14 +562,14 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
         except json.JSONDecodeError:   # Выходит, когда файл невозможно загрузить в формате JSON
             raise ValueError("Пустой JSON или неподдерживаемая структура")
         
-        except not data_json:  # Явная проверка существования файла
-            raise FileNotFoundError("Файл не найден")
+    if not data_json:  # Явная проверка существования файла
+        raise FileNotFoundError("Файл не найден")
         
-        except not isinstance(data_json, list):
-            raise ValueError('Файл не JSON формата: не список словарей')
+    if not isinstance(data_json, list):
+        raise ValueError('Файл не JSON формата: не список словарей')
         
-        except not all(isinstance(row, dict) for row in data_json):
-            raise ValueError('Файл не JSON формата: в списке не словари')
+    if not all(isinstance(row, dict) for row in data_json):
+        raise ValueError('Файл не JSON формата: в списке не словари')
     '''
     Работаем с CSV-файлом, записывая в него данные из загруженного ранее JSON-файла.
     '''
@@ -580,6 +580,7 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
         writer = csv.DictWriter(csv_file, fieldnames=data_json[0].keys()) # Записывает список словарей, заголовок - ключи словарей
         writer.writeheader()
         writer.writerows(data_json) # Записываем данные построчно
+
 ```
 ![json_to_csv](/images/lab05/01_json_csv.png)
 
@@ -694,3 +695,110 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
     wb.save(xlsx_path)  # Сохраняем все изменения в указанном пути
 ```
 ![csv_to_xlsx](/images/lab05/02_csv_to_xlsx.png)
+
+## LAB_06
+### CLI_text
+```py
+import argparse
+from pathlib import Path
+from src.lib.text import tokenize, count_freq, top_n
+
+def main():
+
+    parser = argparse.ArgumentParser(description='CLI-утилиты лабораторной №6')
+    '''Создает основной парсер аргументов с описанием'''
+    subparsers = parser.add_subparsers(dest='command')
+    '''Создает подкоманды - в дальнейшем cat и stats'''
+
+    # Подкоманда cat - утилита для просмотра содержимого текстовых файлов в терминале.
+    cat_parser = subparsers.add_parser("cat", help="Вывести содержимое файла")
+    cat_parser.add_argument("--input", required=True, help="Путь к входному файлу")
+    cat_parser.add_argument("-n", action="store_true", help="Нумеровать строки")
+    '''action="store_true" - если флаг указан, значение становится True, иначе False'''
+
+    # Подкоманда stats -  утилита для адализа текстовой статистики
+    stats_parser = subparsers.add_parser("stats", help="Частоты слов")
+    stats_parser.add_argument("--input", required=True)
+    stats_parser.add_argument("--top", type=int, default=5)
+    '''type=int - автоматически преобразует введенное значение в число, по дефолту
+       выводит топ-5'''
+    
+    args = parser.parse_args() # "Анализирует" значения на входе
+
+    file = Path(args.input)
+
+    if args.command == "cat":
+        with open(file, 'r', encoding='utf-8') as f:
+            count = 1
+            for line in f: # Построчное чтение файла
+                line = line.rstrip("\n") # Очищаем строку от символа переноса
+                if args.n: # Если указан флаг -n, то проводим нумерацию строк
+                    print(f'{count}: {line}')
+                    count += 1
+                else:
+                    print(line)
+            
+    elif args.command == 'stats':
+        with open(file, 'r', encoding='utf-8') as f:
+            file = [i for i in f]
+            tokens = tokenize(''.join(file))
+            freq = count_freq(tokens)
+            top = top_n(freq, n = args.top)
+            '''Работаем с входными данными'''
+
+            num = 1
+    
+            for word, count in top:
+                print(f'{num}. {word} - {count}')
+                num += 1
+
+# Точка - запуск программы
+if __name__ == "__main__":
+    main()
+```
+![cat](images/lab06/cli_cat.png)
+![stats](images/lab06/cli_stats.png)
+
+```py
+import argparse
+import sys
+from src.lab05.json_to_csv import json_to_csv
+from src.lab05.csv_to_json import csv_to_json
+from src.lab05.csv_to_xlsx import csv_to_xlsx
+
+def main():
+    parser = argparse.ArgumentParser(description="Конвертеры данных")
+    sub = parser.add_subparsers(dest="command")
+
+    p1 = sub.add_parser("json2csv")
+    p1.add_argument("--in", dest="input", required=True)
+    p1.add_argument("--out", dest="output", required=True)
+
+    p2 = sub.add_parser("csv2json")
+    p2.add_argument("--in", dest="input", required=True)
+    p2.add_argument("--out", dest="output", required=True)
+
+    p3 = sub.add_parser("csv2xlsx")
+    p3.add_argument("--in", dest="input", required=True)
+    p3.add_argument("--out", dest="output", required=True)
+
+    args = parser.parse_args() # "Анализирует" значения на входе
+
+    if args.command == "json2csv":
+        # Python -m src.lab06.cli_convert json2csv --in data/samples/people.json --out data/out/people_from_json.csv
+        json_to_csv(json_path=args.input, csv_path=args.output)
+
+    if args.command == "csv2json":
+        # Python -m src.lab06.cli_convert csv2json --in data/samples/people.csv --out data/out/people_from_csv.json
+        csv_to_json(csv_path=args.input, json_path=args.output)
+
+    if args.command == "csv2xlsx":
+        # Python -m src.lab06.cli_convert csv2xlsx --in data/samples/cities.csv --out data/out/cities.xlsx
+        csv_to_xlsx(csv_path=args.input, xlsx_path=args.output)
+
+if __name__ == "__main__":
+    main()
+```
+![csv2json](images/lab06/csv2json.png)
+![csv2xlsx](images/lab06/csv2xlsx.png)
+![json2csv](images/lab06/json2csv.png)
