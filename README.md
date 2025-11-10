@@ -759,6 +759,8 @@ if __name__ == "__main__":
 ![cat](images/lab06/cli_cat.png)
 ![stats](images/lab06/cli_stats.png)
 
+### CLI_convert
+
 ```py
 import argparse
 import sys
