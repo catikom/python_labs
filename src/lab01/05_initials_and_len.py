@@ -1,9 +1,9 @@
-fio = str(input('ФИО: '))
+fio = str(input("ФИО: "))
 for i in range(len(fio)):
     fio = fio.replace(" ", "")
-init = ''
+init = ""
 for i in fio:
     if i.upper() == i:
         init += i
-print(f'Инициалы: {init}.')
-print('Длина (символов):', len(fio) + 2)
+print(f"Инициалы: {init}.")
+print("Длина (символов):", len(fio) + 2)

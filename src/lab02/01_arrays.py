@@ -1,20 +1,21 @@
 def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
     if nums == []:
-        raise ValueError('Список пуст') 
-    '''Возвращает ValueError, если список пустой'''
+        raise ValueError("Список пуст")
+    """Возвращает ValueError, если список пустой"""
 
     mini = nums[0]
     for next in nums:
         if next < mini:
-            mini = next 
+            mini = next
     maxi = nums[0]
     for next in nums:
         if next > mini:
-            maxi = next 
+            maxi = next
 
-    return mini, maxi 
-    '''В другом случае возвращает минимум и максимум из списка'''
+    return mini, maxi
+    """В другом случае возвращает минимум и максимум из списка"""
+
 
 # print('[3, -1, 5, 5, 0] ->', min_max([3, -1, 5, 5, 0]))
 # print('[42] ->', min_max([42]))
@@ -42,7 +43,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 
 
 # def flatten(mat: list[list | tuple]) -> list:
-    
+
 #     new_mat = []
 #     for elements in mat:
 #             if isinstance(elements, tuple | list):
@@ -51,7 +52,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 #                 for element in elements:
 #                     new_mat.append(element)
 #                 '''Если все элементы удовлетворяют условию, то проходимся по элементам внутри каждого из них'''
-                
+
 #             else:
 #                 return TypeError('TypeError')
 #             '''Если есть элемент, не являющийся списком/кортежем, выводит ошибку'''
