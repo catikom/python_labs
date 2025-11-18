@@ -68,7 +68,7 @@ def test_top_n_tie_breaker(words, n, expected):
 ![text](../../images/lab07/text.png)
 
 
-### Задание B: csv2json
+### Задание B: json2csv и csv2json
 ```py
 import pytest
 from pathlib import Path
@@ -202,4 +202,5 @@ def test_csv_to_json_type(tmp_path: Path):
 
 ### Задание С: black
 > Все файлы приведены к читаемому виду
+
 ![black](../../images/lab07/black.png)
