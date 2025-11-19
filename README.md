@@ -696,7 +696,7 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
 ```
 ![csv_to_xlsx](/images/lab05/02_csv_to_xlsx.png) -->
 
-<!-- ## LAB_06
+## LAB_06
 ### CLI_text
 ```py
 import argparse
@@ -803,13 +803,12 @@ if __name__ == "__main__":
 ```
 ![csv2json](images/lab06/csv2json.png)
 ![csv2xlsx](images/lab06/csv2xlsx.png)
-![json2csv](images/lab06/json2csv.png) -->
+![json2csv](images/lab06/json2csv.png)
 
 ## LAB_07
 
 ### Предустановки
-> Добавить файл pyproject.toml для настройки поведения тестов
-> Установить pytest и black, совместимые с версией Python
+> Добавить файл pyproject.toml для настройки поведения тестов. Установить pytest и black, совместимые с версией Python
 
 ### Задание A: test_text
 ```py
