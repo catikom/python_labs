@@ -871,7 +871,7 @@ def test_count_freq_and_top_n(tokens, expected):
 def test_top_n_tie_breaker(words, n, expected):
     assert top_n(words, n) == expected
 ```
-![text](../../images/lab07/text.png)
+![text](/images/lab07/text.png)
 
 
 ### Задание B: json2csv и csv2json
@@ -1004,9 +1004,9 @@ def test_csv_to_json_type(tmp_path: Path):
     with pytest.raises(ValueError, match="Неверный тип файла"):
         csv_to_json(str(src), str(dst))
 ```
-![csv2json](../../images/lab07/csv_json.png)
+![csv2json](/images/lab07/csv_json.png)
 
 ### Задание С: black
 > Все файлы приведены к читаемому виду
 
-![black](../../images/lab07/black.png)
+![black](/images/lab07/black.png)
