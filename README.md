@@ -1127,7 +1127,7 @@ if __name__ == "__main__":
     restored_student = Student.from_dict(student_dict)
     print(f"Десериализованный: {restored_student}")
 ```
-![alt text](../../images/lab08/models.png)
+![alt text](images/lab08/models.png)
 
 ### Задание B
 ```py
@@ -1150,7 +1150,7 @@ stud = [
 ]
 students_to_json(stud, 'data/out/students.json')
 ```
-![alt text](../../images/lab08/list2json.png)
+![alt text](images/lab08/list2json.png)
 ```py
 import json
 from pathlib import Path
@@ -1186,4 +1186,4 @@ def students_from_json(path: str):
 # тест
 print(students_from_json('data/samples/students.json'))
 ```
-![alt text](../../images/lab08/json2list.png)
+![alt text](images/lab08/json2list.png)
