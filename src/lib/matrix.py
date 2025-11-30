@@ -1,17 +1,16 @@
-def transpose(mat: list[list[float | int]]) -> list[list]:   #Меняет строки и столбцы
+def transpose(mat: list[list[float | int]]) -> list[list]:  # Меняет строки и столбцы
 
     if not mat:
         return []
 
     len_row = len(mat[0])
     len_col = len(mat)
-    
+
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            return ValueError("Матрица рваная")
 
-
-    new_mat =[]
+    new_mat = []
     for col_ind in range(len_row):
         new_row = []
         for row_ind in range(len_col):
@@ -20,12 +19,13 @@ def transpose(mat: list[list[float | int]]) -> list[list]:   #Меняет ст�
 
     return new_mat
 
+
 def row_sums(mat: list[list[float | int]]) -> list[float]:
-    
+
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
-            '''Проверка на одинаковую длину строк'''
+            return ValueError("Матрица рваная")
+            """Проверка на одинаковую длину строк"""
 
     sum_row = []
 
@@ -35,14 +35,14 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
     return sum_row
 
 
-def col_sums(mat: list[list[float | int]]) -> list[float]:    #Считает сумму по столбцу
+def col_sums(mat: list[list[float | int]]) -> list[float]:  # Считает сумму по столбцу
 
     len_row = len(mat[0])
     len_col = len(mat)
-    
+
     for num in range(len(mat) - 1):
         if len(mat[num]) != len(mat[num + 1]):
-            return ValueError('Матрица рваная')
+            return ValueError("Матрица рваная")
 
     sum_col = []
     for col in range(len_row):
@@ -50,5 +50,5 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:    #Считает с
         for row in range(len_col):
             summa += mat[row][col]
         sum_col.append(summa)
-    
+
     return sum_col
