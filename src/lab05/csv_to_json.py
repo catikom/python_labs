@@ -83,4 +83,4 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
         writer.writerows(data_json)  # Записываем данные построчно
 
 
-# json_to_csv('data/samples/people.json', 'data/out/people_from_json.csv')
+json_to_csv("data/samples/students_input.json", "data/out/people_from_json.csv")

@@ -17,7 +17,7 @@ class Student:
             raise ValueError("Неверная запись времени")
 
         # Валидация диапазона GPA
-        if not (0 <= self.gpa <= 5):
+        if not (0 <= float(self.gpa) <= 5):
             raise ValueError("GPA должен находиться между 0 и 5")
 
     def age(self) -> int:
@@ -40,33 +40,37 @@ class Student:
             "Средний балл": self.gpa,
         }
 
-    @classmethod # Метод создаёт новый объект из существующих данных
+    @classmethod  # Метод создаёт новый объект из существующих данных
     def from_dict(cls, d: dict):
         # Создание объекта класса Student из словаря
         return cls(
-            fio=d['Студент'], group=d["Группа"], birthdate=d["Дата рождения"], gpa=d["Средний балл"]
+            fio=d["Студент"],
+            group=d["Группа"],
+            birthdate=d["Дата рождения"],
+            gpa=d["Средний балл"],
         )
 
     def __str__(self):
-        return (f"Студент: {self.fio};\n"
-                f"Группа: {self.group};\n"
-                f"Дата рождения: {self.birthdate};\n"
-                f"Средний балл: {self.gpa}.")
-    
-    
+        return (
+            f"Студент: {self.fio};\n"
+            f"Группа: {self.group};\n"
+            f"Дата рождения: {self.birthdate};\n"
+            f"Средний балл: {self.gpa}."
+        )
+
+
 if __name__ == "__main__":
     student = Student("Иванов Иван Иванович", "2007-01-15", "БИВТ-25-1", 4.5)
     print(student)
-    print( "=" * 140)
+    print("=" * 140)
 
     # age
     print(f"Возраст: {student.age()}")
-    
+
     # to_dict
     student_dict = student.to_dict()
     print(f"Сериализованный: {student_dict}")
-    
+
     # from_dict
     restored_student = Student.from_dict(student_dict)
     print(f"Десериализованный: {restored_student}")
-
