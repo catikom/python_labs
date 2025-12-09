@@ -1,4 +1,4 @@
-<!-- # PYTHON LABS
+# PYTHON LABS
 ## LAB_01
 ### Задание 1
 
@@ -414,9 +414,9 @@ def main():
 while True:  #опционально: для бесконечного вызова функции
     main()   #вызов функции
 ```
-![Задание 2 (text_stats)](/images/lab03/02_text_stats.png) -->
+![Задание 2 (text_stats)](/images/lab03/02_text_stats.png)
 
-<!-- ## LAB_04
+## LAB_04
 
 ### Задание A (read_text)
 
@@ -529,9 +529,9 @@ write_csv(txt_counts, 'data/report.csv', ("word","count"))
 ```
 
 ![Задание B](/images/lab04/02_text_report.png)
- -->
+ 
 
-<!-- 
+
 ## LAB_05
 
 ### Задание A (json_to_csv)
@@ -694,9 +694,9 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
 
     wb.save(xlsx_path)  # Сохраняем все изменения в указанном пути
 ```
-![csv_to_xlsx](/images/lab05/02_csv_to_xlsx.png) -->
+![csv_to_xlsx](/images/lab05/02_csv_to_xlsx.png)
 
-<!-- ## LAB_06
+## LAB_06
 ### CLI_text
 ```py
 import argparse
@@ -1009,7 +1009,7 @@ def test_csv_to_json_type(tmp_path: Path):
 ### Задание С: black
 > Все файлы приведены к читаемому виду
 
-![black](/images/lab07/black.png) -->
+![black](/images/lab07/black.png)
 
 ## LAB_08
 ### Тестовые данные
@@ -1636,3 +1636,4 @@ if __name__ == "__main__":
 
 ```
 ![alt text](/images/lab10/singlylinkedlist.png)
+
